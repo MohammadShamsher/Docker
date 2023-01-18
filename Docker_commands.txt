@@ -1,0 +1,78 @@
+To check docker version
+docker --version
+
+
+To check all docker images
+docker images ls
+
+
+to download any image from dockerhub
+docker put name_of_image
+
+
+to run image 
+docker run nameof_image
+
+
+
+To run image in detach mode,To run container even if we hav eexited our terminal, bydefault without detach mode container will get stop if we close terminal
+docker run -d nameof_image
+
+
+
+it prints all container regardless its status
+docker ps -a    
+
+
+
+
+print container which are active
+docker ps  
+
+
+
+To print all container id
+docker ps -a -q
+
+
+
+To stop container from running 
+docker stop containerid werka
+
+
+
+
+To remove container  but stop it before
+docker rm container_id_werka
+
+
+
+
+To remove container  forecefully without stoping it
+docker rm -f container_id_werka
+
+
+
+
+To remove All Containers 
+docker rm $(docker ps -a -q)
+
+
+
+To remove 1 image
+docker rmi -f id_of_image
+
+
+To remove All images
+docker rmi $(docker image ls -q)
+
+
+For Port Mapping 8080 is default it will change to 9000  if any our container is using port 8080 and it is not free. So we transfer our new container to our custom port
+docker run -p 9000:8080  image_werka
+
+
+
+
+To Rename Container
+docker run --name hello prev_conatiner_name
+
