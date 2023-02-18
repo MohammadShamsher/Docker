@@ -1,3 +1,7 @@
+To create Dockerfile
+echo > Dockerfile
+
+
 To check docker version
 docker --version
 
