@@ -6,6 +6,21 @@ To check docker version
 docker --version
 
 
+To create Docker image from dokcerfile
+docker build -t flask_application:latest .
+  
+  
+  
+To run docker image 8070 is default so we do port mapping it to 8082
+docker run -p 8082:8070 flask_application
+  
+To check all running images
+docker ps 
+ 
+To stop Container
+docker stop id_write
+
+
 To check all docker images
 docker images ls
 
