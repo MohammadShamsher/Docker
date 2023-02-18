@@ -75,8 +75,12 @@ For Port Mapping 8080 is default it will change to 9000  if any our container is
 docker run -p 9000:8080  image_werka
 
 
-
-
 To Rename Container
 docker run --name hello prev_conatiner_name
 
+
+
+Attach mode (also known as foreground mode) here if you close your terminal container will get stop( bydefault)
+
+Detach Mode (also known as background mode) here if even you close your terminal still container will up and running.My application will up and running.
+docker run -dp 9000:8080  image_werka
