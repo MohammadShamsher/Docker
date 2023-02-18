@@ -107,3 +107,12 @@ docker tag getting-started-javascript mohammadshamsher123/getting-started-javasc
 
 To push docker image to docker hub
 docker push mohammadshamsher123/getting-started-javascript:latest
+
+
+Create Network so containers can interact with each other
+docker network create todo-app 
+
+
+creating mysql image 
+In v (the data will get store it is volume means locally data will get store at this area var/lib/mysql                                   
+docker run -d --network todo-app -v todo-mysql-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=tiger123 -e MYSQL_DATABASE=todo_db mysql:8.0
