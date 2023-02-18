@@ -99,3 +99,11 @@ Attach mode (also known as foreground mode) here if you close your terminal cont
 
 Detach Mode (also known as background mode) here if even you close your terminal still container will up and running.My application will up and running.
 docker run -dp 9000:8080  image_werka
+
+
+
+To change name of docker image
+docker tag getting-started-javascript mohammadshamsher123/getting-started-javascript
+
+To push docker image to docker hub
+docker push mohammadshamsher123/getting-started-javascript:latest
