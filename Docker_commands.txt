@@ -116,3 +116,28 @@ docker network create todo-app
 creating mysql image 
 In v (the data will get store it is volume means locally data will get store at this area var/lib/mysql                                   
 docker run -d --network todo-app -v todo-mysql-data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=tiger123 -e MYSQL_DATABASE=todo_db mysql:8.0
+
+
+To get Inside Container
+docker exec -it container_id_werka mysql -u root -p
+
+
+To create network between docker application_image and mysql_image (nikolaka/netshoot image is used)
+docker run -it --network todo-app nicolaka/netshoot
+
+To check IP through which the connection will get establish Run it after netshoot 
+dig mysql
+
+
+Give permissions to root user with password set in creating mysql image
+ALTER USER 'root' IDENTIFIED with mysql_native_password BY 'tiger123';
+flush privileges;
+
+
+Running application Image with Mysql image with connections from above all considerations
+docker run -p 3000:3000 -w /app -v "$(pwd):/app" --network todo-app -e MYSQL_HOST=mysql -e MYSQL_USER=root -e MYSQL_PASSWORD=tiger123 -e MYSQL_DB=todo_db node:18-alpine sh -c "yarn install && yarn run dev"
+
+
+
+Docker Compose is a tool for defining and running multi-container Docker applications. It allows you to define your application's services, networks, and volumes in a single YAML file, and then start and stop your application using a single command.
+
